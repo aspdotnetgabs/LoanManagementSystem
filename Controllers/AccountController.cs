@@ -16,8 +16,7 @@ namespace EdwillLoanAppMVC4.Controllers
 			FormsAuthentication.SignOut();
 			// Then return login form
 			return View();
-		}
-		
+		}		
 		
         [AllowAnonymous]
 		[HttpPost]	        

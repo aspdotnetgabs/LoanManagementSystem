@@ -179,7 +179,6 @@
     <Compile Include="Models\DepositAccount.cs" />
     <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\Payment.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\EdwillLoanDbContext.cs" />
     <Compile Include="Models\Transaction.cs" />

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SharpDevelopMVC4.Models
+namespace EdwillLoanAppMVC4.Models
 {
     public class Payment
     {

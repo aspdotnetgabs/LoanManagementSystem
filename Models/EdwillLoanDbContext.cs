@@ -1,4 +1,4 @@
-﻿using SharpDevelopMVC4.Models;
+﻿using EdwillLoanAppMVC4.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,7 +9,7 @@ namespace EdwillLoanAppMVC4.Models
 {
     public class EdwillLoanDbContext : DbContext
     {
-        public EdwillLoanDbContext() : base("EdwillLoanDb") // name_of_dbconnection_string
+        public EdwillLoanDbContext() : base("EdwillLoanDb") // name_of_dbconnection_string // I-rename ang _web.config kwaa ang underscore
         {
         }
 

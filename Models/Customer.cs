@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace SharpDevelopMVC4.Models
+namespace EdwillLoanAppMVC4.Models
 {
     public class Customer
     {
