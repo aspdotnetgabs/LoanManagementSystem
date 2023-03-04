@@ -1,4 +1,4 @@
-﻿using SharpDevelopMVC4.Models;
+﻿using EdwillLoanAppMVC4.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,7 @@ public partial class UserAccount
     // Change this to your desired default admin login and password
     public const string DEFAULT_ADMIN_LOGIN = "admin";
     // Change this to your DbContext class
-    private static SdMvc4DbContext _db = new SdMvc4DbContext();
+    private static EdwillLoanDbContext _db = new EdwillLoanDbContext();
 
 
     #region UserAccountRepository

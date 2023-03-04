@@ -1,18 +1,18 @@
-namespace SharpDevelopMVC4.Migrations
+namespace EdwillLoanAppMVC4.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SharpDevelopMVC4.Models.SdMvc4DbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EdwillLoanAppMVC4.Models.EdwillLoanDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(SharpDevelopMVC4.Models.SdMvc4DbContext context)
+        protected override void Seed(EdwillLoanAppMVC4.Models.EdwillLoanDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

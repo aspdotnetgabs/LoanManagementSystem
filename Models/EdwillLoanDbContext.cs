@@ -4,11 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace SharpDevelopMVC4.Models
+namespace EdwillLoanAppMVC4.Models
 {
-    public class SdMvc4DbContext : DbContext
+    public class EdwillLoanDbContext : DbContext
     {
-        public SdMvc4DbContext() : base("SdMvcDb") // name_of_dbconnection_string
+        public EdwillLoanDbContext() : base("EdwillLoanDb") // name_of_dbconnection_string
         {
         }
 
@@ -16,6 +16,8 @@ namespace SharpDevelopMVC4.Models
         public DbSet<UserAccount> Users { get; set; }
         
         public DbSet<Product> Products { get; set; }
+
+
         
     }
 

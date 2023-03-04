@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SharpDevelopMVC4.Models
+namespace EdwillLoanAppMVC4.Models
 {
     [Table("OF_Products")] // Sets the name of the table in the database
     public class Product

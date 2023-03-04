@@ -17,7 +17,7 @@ using System.Web.SessionState;
 using Newtonsoft.Json.Serialization;
 using Hangfire.MemoryStorage;
 
-namespace SharpDevelopMVC4
+namespace EdwillLoanAppMVC4
 {
 	public class MvcApplication : HttpApplication
 	{

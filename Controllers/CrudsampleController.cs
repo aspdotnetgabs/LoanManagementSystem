@@ -3,16 +3,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SharpDevelopMVC4.Models;
+using EdwillLoanAppMVC4.Models;
 
-namespace SharpDevelopMVC4.Controllers
+namespace EdwillLoanAppMVC4.Controllers
 {
 	/// <summary>
 	/// Description of ProductsController.
 	/// </summary>
 	public class CrudsampleController : Controller
 	{
-		private readonly SdMvc4DbContext _db = new SdMvc4DbContext();
+		private readonly EdwillLoanDbContext _db = new EdwillLoanDbContext();
 
 		// GET: Products
 		public ActionResult Index(string searchString, int page = 0, int pageSize = 6)

@@ -177,7 +177,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
-    <Compile Include="Models\SdMvc4DbContext.cs" />
+    <Compile Include="Models\EdwillLoanDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,7 +221,9 @@
     <None Include="Views\_ViewStart.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Scripts\petite-vue.es.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
