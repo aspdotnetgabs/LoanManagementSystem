@@ -163,7 +163,6 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\CrudsampleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,9 +174,15 @@
     <Compile Include="Helpers\UserAccount.cs" />
     <Compile Include="Helpers\UserAccountCSV.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Amortization.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DepositAccount.cs" />
+    <Compile Include="Models\Loan.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\EdwillLoanDbContext.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,11 +212,6 @@
     <None Include="Scripts\jquery.slim.min.map" />
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\ManageUsers.cshtml" />
-    <None Include="Views\Crudsample\Create.cshtml" />
-    <None Include="Views\Crudsample\Details.cshtml" />
-    <None Include="Views\Crudsample\Edit.cshtml" />
-    <None Include="Views\Crudsample\Index.cshtml" />
-    <None Include="Views\Crudsample\Manage.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
