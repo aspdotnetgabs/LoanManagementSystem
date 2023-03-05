@@ -1,0 +1,31 @@
+﻿@model List<EdwillLoanAppMVC4.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customers</h2>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Address</th>
+        <th>Phone No.</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach(var customer in Model)
+            {
+            <tr>
+                <td>@customer.LastName</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.Address</td>
+                <td>@customer.Phone</td>
+                <td>
+                <a href="/Customer/Edit/@customer.Id" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/Customer/Delete/@customer.Id" class="btn btn-danger btn-sm" onclick="return confirm ('Are You Sure?')">Delete</a>
+                </td>
+            </tr>
+
+            }
+</table>
+

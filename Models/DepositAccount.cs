@@ -12,7 +12,7 @@ namespace EdwillLoanAppMVC4.Models
         public int Id { get; set; }
 
         [ForeignKey("Customer")]
-        public int CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
 
         [Required]
