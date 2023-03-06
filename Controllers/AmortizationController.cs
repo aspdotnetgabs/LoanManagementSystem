@@ -13,7 +13,7 @@ namespace EdwillLoanAppMVC4.Controllers
         public ActionResult Index()
         {
 
-            var amortization = new Amortization();
+            var amortization = _db.Amortizations.ToList();
             return View(amortization);
         }
     }

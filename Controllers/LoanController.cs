@@ -28,10 +28,7 @@ namespace EdwillLoanAppMVC4.Controllers
 
         private void GenerateAmortization(Loan loan)
         {
-            var interest = (loan.Amount /loan.DurationInMonths) * 0.05m;
-            var amountDue = (loan.Amount / loan.DurationInMonths) + interest;
-            
-            
+            var interest = (loan.Amount /loan.DurationInMonths) * 0.05m;   
 
             for (int i = 0; i < loan.DurationInMonths; i++)
             {             
@@ -39,7 +36,8 @@ namespace EdwillLoanAppMVC4.Controllers
                 amort.PeriodNo = loan.DurationInMonths;
                 amort.Interest = interest;
                 amort.LoanId = loan.Id;
-                amort.DueAmount = amountDue;
+                amort.Principal = loan.Amount / loan.DurationInMonths;
+                amort.DueAmount = (loan.Amount / loan.DurationInMonths) + interest; ;
                 amort.DueDate = loan.StartDate.AddMonths(i);
                 _db.Amortizations.Add(amort);
             }
