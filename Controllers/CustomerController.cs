@@ -51,5 +51,15 @@ namespace SharpDevelopMVC4.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        public ActionResult Detail(Guid Id)
+        {
+            var customer = _db.Customers.Find(Id);
+            //customer.DepositAccounts = _db.DepositAccounts.Where(x => x.CustomerId == customer.Id).ToList();
+            return View(customer);
+        }
+
+        
+        
     }
 }

@@ -1,0 +1,28 @@
+﻿@model List<EdwillLoanAppMVC4.Models.Amortization>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>Id</th>
+        <th>Due Date</th>
+        <th>Principal</th>
+        <th>Interest</th>
+        <th>Amount Due</th>
+    </tr>
+
+    @foreach(var amort in Model)
+            {
+                <tr>
+                    <th>@amort.Id</th>
+                    <th>@amort.DueDate</th>
+                    <th>@amort.Principal</th>
+                    <th>@amort.Interest</th>
+                    <th>@amort.DueAmount</th>
+                </tr>
+            }
+
+</table>

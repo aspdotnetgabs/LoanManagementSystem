@@ -1,0 +1,108 @@
+﻿@model EdwillLoanAppMVC4.Models.Customer
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<table class="table table-hover">
+    <tr>
+        <td>Name: </td>
+        <td>@Model.FirstName @Model.LastName </td>
+        <td></td>
+        <td>Phone No.</td>
+        <td>@Model.Phone</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>@Model.Address</td>
+        <td></td>
+        <td>Email: </td>
+        <td></td>
+    </tr>
+</table>
+
+<h2>Deposit Account</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Account No.</th>
+        <th>Balance</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var deposit in Model.DepositAccounts)
+    {
+        <tr>
+            <td>@deposit.AccountNumber</td>
+            <td>@deposit.Balance</td>
+            <td>
+                <a href="#" class="btn btn-outline-info btn-sm">View Transactions</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<form action="/DepositAccount/Create" method="post">
+    <input type="hidden" name="customerId" value="@Model.Id" />
+    <button type="submit" class="btn btn-outline-info">Create Deposit Account</button>
+</form>
+
+<h2>Loans</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Duration In Month</th>
+        <th>Due Date</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var loan in Model.Loans)
+    {
+        <tr>
+            <td>@loan.LoanDate</td>
+            <td>@loan.Amount</td>
+            <td>@loan.DurationInMonths</td>
+            <td>@loan.StartDate</td>
+            <td>
+                <a href="/Amortization/Index/@Model.Id" class="btn btn-outline-info btn-sm">Amortization</a>
+                <a href="#" class="btn btn-outline-success btn-sm">Payment</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<form action="/Loan/Create" method="post">
+    <div class="form-group row">
+        <label for="CustomerId" class="col-4 col-form-label"></label>
+        <div class="col-8">
+            <input id="CustomerId" name="CustomerId" value="@Model.Id" type="text" class="form-control" hidden>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="LoanDate" class="col-4 col-form-label">Date</label>
+        <div class="col-8">
+            <input id="LoanDate" name="LoanDate" type="date" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Amount" class="col-4 col-form-label">Amount</label>
+        <div class="col-8">
+            <input id="Amount" name="Amount" type="text" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="DurationInMonths" class="col-4 col-form-label">Duration In Months</label>
+        <div class="col-8">
+            <input id="DurationInMonths" name="DurationInMonths" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="StartDate" class="col-4 col-form-label">Payment Start Date</label>
+        <div class="col-8">
+            <input id="StartDate" name="StartDate" type="date" class="form-control">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-info">New Loan</button>
+</form>

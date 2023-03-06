@@ -16,17 +16,15 @@ namespace SharpDevelopMVC4.Controllers
             return View(depositAccounts);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public ActionResult Create(DepositAccount depositAccount)
+        public ActionResult Create(Guid customerId) // customerId
         {
+            var depositAccount = new DepositAccount();
+            depositAccount.AccountNumber = Guid.NewGuid().ToString();
+            depositAccount.CustomerId = customerId;
             _db.DepositAccounts.Add(depositAccount);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Detail", "Customer", new { Id = depositAccount.CustomerId });
         }
 
 

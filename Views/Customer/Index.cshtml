@@ -21,6 +21,7 @@
                 <td>@customer.Address</td>
                 <td>@customer.Phone</td>
                 <td>
+                <a href="/Customer/Detail/@customer.Id" class="btn btn-info btn-sm">Accounts</a>
                 <a href="/Customer/Edit/@customer.Id" class="btn btn-warning btn-sm">Edit</a>
                 <a href="/Customer/Delete/@customer.Id" class="btn btn-danger btn-sm" onclick="return confirm ('Are You Sure?')">Delete</a>
                 </td>

@@ -13,6 +13,7 @@ namespace EdwillLoanAppMVC4.Models
         [ForeignKey("Customer")]
         public Guid CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
+        public DateTime LoanDate { get; set; }
 
         public decimal Amount { get; set; }
 
