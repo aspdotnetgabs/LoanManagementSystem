@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle ("SharpDevelopMVC4")]
+[assembly: AssemblyTitle ("VisualStudioMVC4")]
 [assembly: AssemblyDescription ("")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("")]
-[assembly: AssemblyProduct ("SharpDevelopMVC4")]
+[assembly: AssemblyProduct ("VisualStudioMVC4")]
 [assembly: AssemblyCopyright ("Copyright 2019")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]

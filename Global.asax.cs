@@ -17,7 +17,7 @@ using System.Web.SessionState;
 using Newtonsoft.Json.Serialization;
 using Hangfire.MemoryStorage;
 
-namespace SharpDevelopMVC4
+namespace VisualStudioMVC4
 {
 	public class MvcApplication : HttpApplication
 	{
@@ -33,8 +33,9 @@ namespace SharpDevelopMVC4
 				new {
 					controller = "Home",
 					action = "Index",
-					id = UrlParameter.Optional
-				});
+					id = UrlParameter.Optional,
+				},
+				new string[] { "VisualStudioMVC4.Controllers" });
 		}
 
         protected void Application_Start()

@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace SharpDevelopMVC4.Models
+namespace VisualStudioMVC4.Models
 {
     public class SdMvc4DbContext : DbContext
     {

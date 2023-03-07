@@ -1,4 +1,4 @@
-﻿using SharpDevelopMVC4.Models;
+﻿using VisualStudioMVC4.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

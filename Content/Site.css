@@ -53,4 +53,8 @@ html, body {
 	height: 75px;
 	clear:both;
 	padding-top:1px;
-} 
+}
+
+.modal.show {
+	background-color: #000000a3;
+}

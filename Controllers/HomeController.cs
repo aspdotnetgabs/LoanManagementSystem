@@ -7,7 +7,7 @@ using System.Data.OleDb;
 using Dapper;
 using Newtonsoft.Json;
 
-namespace SharpDevelopMVC4.Controllers
+namespace VisualStudioMVC4.Controllers
 {
     public class HomeController : Controller
     {    	

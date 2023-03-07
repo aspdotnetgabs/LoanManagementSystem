@@ -3,9 +3,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SharpDevelopMVC4.Models;
+using VisualStudioMVC4.Models;
 
-namespace SharpDevelopMVC4.Controllers
+namespace VisualStudioMVC4.Controllers
 {
 	/// <summary>
 	/// Description of ProductsController.
