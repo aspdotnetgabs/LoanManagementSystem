@@ -10,11 +10,12 @@ namespace VisualStudioMVC4.Controllers
 	/// </summary>
 	public class AccountController : Controller
 	{
-		public ActionResult Login()
+		public ActionResult Login(string returnUrl = "/")
 		{
 			// Logout account
 			FormsAuthentication.SignOut();
 			// Then return login form
+			ViewBag.ReturnUrl = returnUrl;
 			return View();
 		}
 		
@@ -70,7 +71,7 @@ namespace VisualStudioMVC4.Controllers
 		[Authorize]
 		public ActionResult ChangePassword(string currentPassword, string newPassword)
 		{
-			var success = UserAccountCSV.ChangePassword(User.Identity.Name, currentPassword, newPassword);
+			bool success = UserAccountCSV.ChangePassword(User.Identity.Name, currentPassword, newPassword);
 			if (success)
 				TempData["alert"] = "Password changed successfully.";
 			else
