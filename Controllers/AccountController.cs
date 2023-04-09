@@ -23,7 +23,7 @@ namespace VisualStudioMVC4.Controllers
         [AllowAnonymous]
 		[HttpPost]	        
         [ValidateAntiForgeryToken]		
-		public ActionResult Login(string username, string password, bool rememberme = false)
+		public ActionResult Login(string username, string password, bool rememberme = false, string returnUrl = "/")
 		{		
 			var user = UserAccountCSV.Authenticate(username, password);
 			if(user != null) // If not null then it's a valid login
@@ -51,8 +51,8 @@ namespace VisualStudioMVC4.Controllers
 		    }
 		    
 		    // invalid username or password
-		    ModelState.AddModelError("invalidLogin", "Invalid username or password");
-		    return View();
+		    TempData["invalidLogin"] = "Invalid username or password";
+			return RedirectToAction("Login", new { ReturnUrl = returnUrl });
 		}
 		
 		public ActionResult Logoff()
