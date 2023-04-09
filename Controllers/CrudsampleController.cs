@@ -77,7 +77,7 @@ namespace VisualStudioMVC4.Controllers
 			Product product = _db.Products.Find(id);
 
 			if (product == null) {
-				TempData["msgAlert"] = "Product does not exist.";
+				TempData["alert"] = "Product does not exist.";
 				return RedirectToAction("Manage");
 			}
 
@@ -109,7 +109,7 @@ namespace VisualStudioMVC4.Controllers
 				_db.Products.Remove(product);
 				_db.SaveChanges();	           
 			} else {
-				TempData["msgAlert"] = "Product not found";
+				TempData["alert"] = "Product not found";
 			}
 
 			return RedirectToAction("Manage");

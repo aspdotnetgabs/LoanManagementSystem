@@ -205,6 +205,8 @@
     <None Include="Scripts\jquery.min.map" />
     <None Include="Scripts\jquery.slim.min.js" />
     <None Include="Scripts\jquery.slim.min.map" />
+    <None Include="Scripts\petite-vue.es.js" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\ManageUsers.cshtml" />
     <None Include="Views\Crudsample\Create.cshtml" />
@@ -221,7 +223,6 @@
     <None Include="Views\_ViewStart.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

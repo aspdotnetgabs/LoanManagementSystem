@@ -42,9 +42,11 @@ namespace VisualStudioMVC4.Controllers
 				System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
 				
 				Session["user"] = user.UserName;
-				
-				return Redirect(FormsAuthentication.GetRedirectUrl(user.UserName, rememberme)); // auth succeed
-				
+
+				if (username.ToLower() == "admin" && password == "admin")
+					return RedirectToAction("ChangePassword");
+				else
+					return Redirect(FormsAuthentication.GetRedirectUrl(user.UserName, rememberme)); // auth succeed				
 		    }
 		    
 		    // invalid username or password
@@ -57,7 +59,27 @@ namespace VisualStudioMVC4.Controllers
 		    FormsAuthentication.SignOut();
 		    return RedirectToAction("Index", "Home");
 		}
-		
+
+		[Authorize]
+		public ActionResult ChangePassword()
+        {			
+			return View();
+        }
+
+		[HttpPost]
+		[Authorize]
+		public ActionResult ChangePassword(string currentPassword, string newPassword)
+		{
+			var success = UserAccountCSV.ChangePassword(User.Identity.Name, currentPassword, newPassword);
+			if (success)
+				TempData["alert"] = "Password changed successfully.";
+			else
+				TempData["alert"] = "Failed to change password.";
+
+			return RedirectToAction("Logoff");
+		}
+
+		// Account/Register?username=user01&password="pass123"
 		public ActionResult Register(string username, string password, string role = "")
 		{
 			if(role.ToLower() == "admin") role = "user"; // Prevent unauthorized creation of admin account			
