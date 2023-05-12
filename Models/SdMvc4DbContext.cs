@@ -8,7 +8,7 @@ namespace VisualStudioMVC4.Models
 {
     public class SdMvc4DbContext : DbContext
     {
-        public SdMvc4DbContext() : base("SdMvcDb") // name_of_dbconnection_string
+        public SdMvc4DbContext() : base("SdMvcLocalDb") // name_of_dbconnection_string
         {
         }
 
