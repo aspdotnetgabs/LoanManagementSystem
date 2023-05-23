@@ -1,0 +1,59 @@
+﻿@model SharpDevelopMVC4.Models.Payment
+@{
+    ViewBag.Title = "Pay";
+}
+
+<h2>Pay</h2>
+
+<form action="/Payment/Pay" method="post">
+    <input id="Id" name="Id" value="@Model.Id" type="hidden" class="form-control">
+    <input id="CreditId" name="CreditId" value="@Model.CreditId" type="hidden" class="form-control">
+    <div class="form-group row">
+        <label for="DueDate" class="col-4 col-form-label">Due Date</label>
+        <div class="col-8">
+            <input id="DueDate" value="@Model.DueDate.ToString("MMM/dd/yyyy")" type="text" class="form-control" readonly>
+            <input type="hidden" name="DueDate" value="@Model.DueDate" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="DueAmount" class="col-4 col-form-label">Amount Due</label>
+        <div class="col-8">
+            <input id="DueAmount" name="DueAmount" value="@Model.DueAmount" type="text" class="form-control" readonly>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="PaymentDate" class="col-4 col-form-label">Payment Date</label>
+        <div class="col-8">
+            <input id="PaymentDate" name="PaymentDate" value="@Model.PaymentDate" type="date" class="form-control">
+        </div>
+    </div>
+    <input id="PaidAmount" name="PaidAmount" value="@Model.DueAmount" type="text" class="form-control" hidden>
+
+    <div class="form-group row">
+        <label for="Penalty" class="col-4 col-form-label">Penalty</label>
+        <div class="col-8">
+            <input id="Penalty" name="Penalty" value="@Model.Penalty" type="text" class="form-control" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-4">Penalty Paid?</label>
+        <div class="col-8">
+            <div class="custom-control custom-checkbox custom-control-inline">
+                @Html.CheckBoxFor(m => m.IsPenaltyPaid, new { @class = "custom-control-input" })
+                <label for="IsPenaltyPaid" class="custom-control-label">&nbsp;</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Notes" class="col-4 col-form-label">Notes</label>
+        <div class="col-8">
+            <textarea id="Notes" name="Notes" cols="40" rows="1" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>

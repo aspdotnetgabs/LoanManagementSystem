@@ -80,6 +80,7 @@ namespace VisualStudioMVC4.Controllers
 			return RedirectToAction("Logoff");
 		}
 
+		[HttpPost]
 		// Account/Register?username=user01&password="pass123"
 		public ActionResult Register(string username, string password, string role = "")
 		{

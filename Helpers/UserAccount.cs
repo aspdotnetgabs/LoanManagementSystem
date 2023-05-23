@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using SharpDevelopMVC4.Models;
 
 [Table("Users")]
 public partial class UserAccount

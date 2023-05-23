@@ -55,6 +55,13 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/weatherforecast">Weather Forecast</a>
                             <a class="dropdown-item" href="/crudsample">CRUD Sample</a>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/Producto/Index">Products</a>
+                                <a class="dropdown-item" href="/Customer/Index">Customers</a>
+                                <a class="dropdown-item" href="/Credit/Index">Credits</a>
+                            }
                         </div>
                     </li>
 

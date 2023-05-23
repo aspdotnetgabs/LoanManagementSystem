@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "AddCustomer";
+}
+
+<h2>Add Customer</h2>
+
+<form action="/Customer/AddCustomer" method="post">
+    <div class="form-group row">
+        <label for="Name" class="col-4 col-form-label">Name</label>
+        <div class="col-8">
+            <input id="Name" name="Name" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="PhoneNumber" class="col-4 col-form-label">Contact Number</label>
+        <div class="col-8">
+            <input id="PhoneNumber" name="PhoneNumber" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Address" class="col-4 col-form-label">Address</label>
+        <div class="col-8">
+            <input id="Address" name="Address" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            <a href="/Customer/Index" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+</form>

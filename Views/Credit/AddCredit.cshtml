@@ -1,0 +1,95 @@
+﻿@model SharpDevelopMVC4.ViewModels.CreditAddEditViewModel
+
+@{
+    ViewBag.Title = "AddCredit";
+}
+
+<h2>Add Credit</h2>
+
+<form action="/Credit/AddCredit" method="post">
+    <div class="form-group row">
+        <label for="CustomerId" class="col-4 col-form-label">Customer</label>
+        <div class="col-8">
+            <select id="CustomerId" name="CustomerId" class="custom-select">
+                <option value=""></option>
+                @foreach (var customer in Model.CustomersLookup)
+                {
+                    <option value="@customer.Id">@customer.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="ProductId" class="col-4 col-form-label">Product</label>
+        <div class="col-8">
+            <select v-model="ProductId" id="ProductId" name="ProductId" class="custom-select" @@change="getPrice()">
+                <option value=""></option>
+                @foreach (var product in Model.ProductsLookup)
+                {
+                    <option value="@product.Id">@product.ProductName</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Price" class="col-4 col-form-label">Price</label>
+        <div class="col-8">
+            <input v-model="Price" id="Price" name="Price" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Quantity" class="col-4 col-form-label">Quantity</label>
+        <div class="col-8">
+            <input id="Quantity" name="Quantity" type="text" class="form-control">
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="CreditDate" class="col-4 col-form-label">Credit Date</label>
+        <div class="col-8">
+            <input id="CreditDate" name="CreditDate" type="date" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="TermInMonth" class="col-4 col-form-label">Term In Month</label>
+        <div class="col-8">
+            <input id="TermInMonth" name="TermInMonth" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="DownPayment" class="col-4 col-form-label">Down Payment</label>
+        <div class="col-8">
+            <input id="DownPayment" name="DownPayment" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="StartPaymentDate" class="col-4 col-form-label">Start Payment Date</label>
+        <div class="col-8">
+            <input id="StartPaymentDate" name="StartPaymentDate" type="date" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+<script type="module">
+    import { createApp } from "https://unpkg.com/petite-vue?module";
+    const app = {
+        //data
+        ProductId: '',
+        Price: '',
+        //methods
+        getPrice() {
+            fetch('/credit/getprice/' + this.ProductId)
+                .then(response => response.json())
+                .then((data) => {
+                    this.Price = data;
+                });
+        }
+    }
+    createApp(app).mount();
+</script>

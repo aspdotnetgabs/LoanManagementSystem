@@ -1,18 +1,19 @@
 namespace VisualStudioMVC4.Migrations
 {
+    using SharpDevelopMVC4.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<VisualStudioMVC4.Models.SdMvc4DbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SdMvc4DbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(VisualStudioMVC4.Models.SdMvc4DbContext context)
+        protected override void Seed(SdMvc4DbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

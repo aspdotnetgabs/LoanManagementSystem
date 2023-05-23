@@ -1,0 +1,35 @@
+﻿@model List<SharpDevelopMVC4.Models.Producto>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Product</h2>
+<a href="/Producto/AddProduct" class="btn btn-primary btn-lg float-left">Add Product</a>
+
+<table class="table table-dark table-hover">
+    <tr>
+        <th>Id</th>
+        <th>ProductName</th>
+        <th>ProduDescription</th>
+        <th>ProductPrice</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var prod in Model)
+    {
+        <tr>
+            <td>@prod.Id</td>
+            <td>@prod.ProductName</td>
+            <td>@prod.ProductDescription</td>
+            <td>@prod.ProductPrice</td>
+
+            <td>
+                <a href="/Producto/Edit/@prod.Id" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/Producto/Delete/@prod.Id" class="btn btn-danger btn-sm" onclick="return confirm ('Are You Sure?')">Delete</a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+

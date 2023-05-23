@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "AddProdut";
+}
+
+<h2>Add Product</h2>
+
+<form action="/Producto/AddProduct" method="post">
+    <div class="form-group row">
+        <label for="ProductName" class="col-4 col-form-label">Product Name</label>
+        <div class="col-8">
+            <input id="ProductName" name="ProductName" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="ProductDescription" class="col-4 col-form-label">Product Description</label>
+        <div class="col-8">
+            <textarea id="ProductDescription" name="ProductDescription" cols="40" rows="5" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="ProductPrice" class="col-4 col-form-label">Product Price</label>
+        <div class="col-8">
+            <input id="ProductPrice" name="ProductPrice" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            <a href="/Producto/Index" name="submit" type="submit" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

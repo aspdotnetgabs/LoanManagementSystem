@@ -1,0 +1,88 @@
+﻿@using System.Globalization
+@model SharpDevelopMVC4.ViewModels.CreditPaymentViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Amortization</h2>
+<p>Customer: @Model.Credit.CustomerName</p>
+<p>Product: @Model.Credit.ProductName</p>
+<p>Downpayment: @Model.Credit.Downpayment</p>
+
+
+<table class="table table-bordered table-sm">
+    <tr>
+        <th>Due Date</th>
+        <th>Amount Due</th>
+        <th>Penalty</th>
+        <th>Payment Date</th>
+        <th>Notes</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var payment in Model.Payments)
+    {
+        CultureInfo culture = new CultureInfo("en-PH");
+        DateTime currentDate = DateTime.Now;
+        <tr>
+            <td>@payment.DueDate.ToString("MMM/dd/yyyy")</td>
+
+            @if (currentDate > payment.DueDate)
+            {
+                payment.Penalty = payment.DueAmount * .10;
+                
+
+
+                <td>@payment.DueAmount.ToString("C", culture)</td>
+                if(payment.IsPenaltyPaid == true)
+                    {
+                        <td>Paid</td>
+                    }
+                    else
+                    {
+                        <td>@payment.Penalty.ToString("C", culture)</td>
+                    }
+                
+                
+            }
+            else
+            {
+               
+                <td>@payment.DueAmount.ToString("C", culture)</td>                          
+                <td>@payment.Penalty.ToString("C", culture)</td>
+                
+            }
+
+            @if (payment.PaymentDate != null)
+            {
+                <td>@payment.PaymentDate.Value.ToString("MMM/dd/yyyy")</td>
+            }
+            else
+            {
+                <td></td>
+            }
+            <td>@payment.Notes</td>
+
+            @if (payment.PaidAmount == payment.DueAmount)
+                    {
+                         <td>
+                             <a href="/Payment/Pay/@payment.Id" class="btn btn-warning btn-sm" hidden>Pay</a>
+                              Paid
+                         </td>
+                         
+                    }
+           
+            
+            else
+            {
+                <td>
+                    <a href="/Payment/Pay/@payment.Id" class="btn btn-warning btn-sm">Pay</a>
+                </td>
+            }
+
+        </tr>
+    }
+
+</table>
+<p>Total Paid: <b>@Model.TotalPayment</b></p>
+<p>Balance: <b>@Model.Balance</b></p>
