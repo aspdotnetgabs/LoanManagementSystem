@@ -8,7 +8,7 @@ using SharpDevelopMVC4.ViewModels;
 
 namespace SharpDevelopMVC4.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public class CreditController : Controller
     {
         SdMvc4DbContext _db = new SdMvc4DbContext();

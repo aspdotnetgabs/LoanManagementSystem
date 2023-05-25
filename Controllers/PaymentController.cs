@@ -64,7 +64,7 @@ namespace SharpDevelopMVC4.Controllers
             _db.Entry(updatedPayment).State = System.Data.Entity.EntityState.Modified;
             _db.SaveChanges();
             var paymentId = _db.Payments.Find(updatedPayment.CreditId).Id;
-            TempData["msgAlert"] = "Successfully Paid.";
+            TempData["alert"] = "Successfully Paid.";
             return RedirectToAction("Index", "Payment", new { Id = paymentId });
         }
         

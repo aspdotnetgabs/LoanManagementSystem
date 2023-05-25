@@ -8,7 +8,7 @@ namespace SharpDevelopMVC4.Models
 {
     public class SdMvc4DbContext : DbContext
     {
-        public SdMvc4DbContext() : base("EdwillPhoneLoanDb") // name_of_dbconnection_string
+        public SdMvc4DbContext() : base("EdwillPhoneLoanDbSomee") // name_of_dbconnection_string
         {
         }
 
@@ -17,10 +17,10 @@ namespace SharpDevelopMVC4.Models
         
         public DbSet<Product> Products { get; set; }
 
-        public DbSet<Customer>Customers { get; set; }
-        public DbSet< Producto>Productos { get; set; }
-        public DbSet<Credit>Credits { get; set; }
-        public DbSet< Payment>Payments { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet< Producto> Productos { get; set; }
+        public DbSet<Credit> Credits { get; set; }
+        public DbSet< Payment> Payments { get; set; }
 
     }
 

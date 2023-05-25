@@ -25,9 +25,11 @@ namespace VisualStudioMVC4.Controllers
         [ValidateAntiForgeryToken]		
 		public ActionResult Login(string username, string password, bool rememberme = false, string returnUrl = "/")
 		{		
-			var user = UserAccountCSV.Authenticate(username, password);
-			if(user != null) // If not null then it's a valid login
+			var success = UserAccount.Authenticate(username, password);
+
+			if(success) // If not null then it's a valid login
 		    {
+				var user = UserAccount.GetUserByUserName(username);
 				var authTicket = new FormsAuthenticationTicket(
 				    1,                             	// version
 				    user.UserName,               	// user name
@@ -71,7 +73,7 @@ namespace VisualStudioMVC4.Controllers
 		[Authorize]
 		public ActionResult ChangePassword(string currentPassword, string newPassword)
 		{
-			bool success = UserAccountCSV.ChangePassword(User.Identity.Name, currentPassword, newPassword);
+			bool success = UserAccount.ChangePassword(User.Identity.Name, currentPassword, newPassword);
 			if (success)
 				TempData["alert"] = "Password changed successfully.";
 			else
@@ -79,14 +81,27 @@ namespace VisualStudioMVC4.Controllers
 
 			return RedirectToAction("Logoff");
 		}
-
+		public ActionResult Register()
+        {
+			return View();
+        }
 		[HttpPost]
 		// Account/Register?username=user01&password="pass123"
 		public ActionResult Register(string username, string password, string role = "")
 		{
 			if(role.ToLower() == "admin") role = "user"; // Prevent unauthorized creation of admin account			
-			var result = UserAccountCSV.Create(username, password, role);
-			return Content(result.UserName);
+			var result = UserAccount.Create(username, password, role);
+
+			if (result != null)
+			{
+				TempData["alert"] = "Account succesfully created.";
+				return RedirectToAction("Login");
+			}
+			else
+            {
+				TempData["alert"] = "Account registration failed";
+				return View();
+			}
 		}
 		
 		[Authorize(Roles="admin")]
